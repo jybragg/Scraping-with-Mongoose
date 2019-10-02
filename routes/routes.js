@@ -9,7 +9,7 @@ module.exports = function (router) {
         res.render("index");
     });
 
-    router.get("/saved", function (res, req) {
+    router.get("/saved", function (req, res) {
         res.render("saved");
     });
 
