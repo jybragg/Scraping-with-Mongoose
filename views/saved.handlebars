@@ -1,32 +1,26 @@
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Saved Articles</a>
+<div class="jumbotron jumbotron-fluid" style="background-color:rgb(119, 194, 194)">
+    <div class="container text-center">
+        <h1><strong>Saved Articles</strong></h1>
+         <hr class="my-4">
+        <a href="/"><button type="button" class="btn btn-warning">Back to Home</button></a>
     </div>
-    <ul class="nav navbar-nav">
-      <li><a href="/">Home</a></li>
-      <li><a href="/saved">Saved Articles</a></li>
-      <li class="active"><a href="/saved">Saved Articles</a></li>
-    </ul>
-  </div>
-</nav>
-
-<div class="jumbotron text-center">
-  <div class="overlay">
-  </div>
-  <div class="background-image">
-  </div>
-  <div class="caption">
-    <h1>Saved Articles</h1>
-    <p>Your Saved Articles</p>
-  </div>
 </div>
-
-<div class="container-fluid article-containder"></div> 
-
-<footer class="footer">
-  <div class="container">
-    <p>New York Times Mongo Scraper</p>
-  </div>
-</footer>
-<script src="../../assets/javascript/saved.js"></script>
+<div class="row">
+    <div class="col-12">
+        <div id="articles" style="padding-right:3%; padding-left:3%">
+            {{#each saved}}
+            <button data-id={{this._id}} class="btn btn-warning delete-article"
+                style="padding: 3px 6px; float:right;">Delete from
+                Saved</button>
+            <button data-id={{this._id}} class="btn btn-warning note-comment"
+                style="padding: 3px 6px; float:right; margin-right:.5%">Article Notes</button>
+            <h4><strong>{{this.title}}</strong></h4>
+            <a href="{{this.link}}">{{this.link}}</a>
+            {{#if this.excerpt}}
+            <h5>{{this.excerpt}}</h5>
+            {{/if}}
+            <hr>
+            {{/each}}
+        </div>
+    </div>
+</div>

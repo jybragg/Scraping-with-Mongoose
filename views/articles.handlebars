@@ -1,0 +1,52 @@
+<div class="jumbotron jumbotron-fluid" style="background-color:rgb(119, 194, 194)">
+  <div class="container text-center">
+    <h2><strong>Your Comments on "{{data.title}}"</strong></h2>
+    <hr class="my-4">
+    <a href="/saved"><button type="button" class="btn btn-warning" style="padding: 6px 12px; margin-left:1%">Saved
+        Articles</button></a>
+    <a href="/"><button type="button" class="btn btn-warning" style="padding: 6px 12px">Back to Home</button></a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-6">
+    <div class="card mt-4">
+      <div class="card-body">
+        <form class="clearfix mb-4">
+          <div class="form-group">
+            <label for="title-note">
+              <h4><strong>Your Comment title</strong></h4>
+            </label>
+            <input type="text" id="title-note" class="form-control" aria-describedby="example-text"
+              placeholder="Enter title here">
+          </div>
+          <div class="form-group">
+            <label for="note-description">
+              <h4><strong>Your Comment</strong></h4>
+            </label>
+            <textarea class="form-control" id="note-description" rows="8" aria-describedby="note-description"
+              placeholder="Enter comment here"></textarea>
+          </div>
+          <br>
+          <button type="button" class="btn btn-warning" id="submit-note" data-id={{data._id}}
+            style="padding: 5px 10px; float:right">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-6">
+    <h4><strong>Previous Comments:</strong></h4>
+    {{#if data.note}}
+    {{#each data.note}}
+    <hr>
+    <button data-id={{this._id}} class="btn btn-warning delete-note"
+      style="padding: 5px 10px; float:right">Delete</button>
+    <h4><strong>{{this.title}}</strong></h4>
+    <h5>{{this.body}}</h5>
+    <hr>
+    {{/each}}
+    {{else}}
+    <h6>There are no comments for this article.</h6>
+    {{/if}}
+  </div>
+</div>
+</div>

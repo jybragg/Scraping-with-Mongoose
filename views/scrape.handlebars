@@ -1,0 +1,30 @@
+<div id="container">
+  <div class="jumbotron jumbotron-fluid" style="background-color:rgb(119, 194, 194)">
+    <div class="container text-center">
+      <h1><strong>Scraped Articles from reddit</strong></h1>
+      <hr class="my-4">
+      <div class="col-12">
+        <a href="/saved"><button type="button" class="btn btn-warning" >Saved Articles</button></a>
+        <a href="/"><button type="button" class="btn btn-warning" style="margin-left:2%;">Back to Home</button></a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div id="articles" style="padding-left:3%; padding-right:3%">
+
+        {{#each articles}}
+        <hr>
+        <button data-id={{@index}} class="btn btn-warning save-article" style="padding: 5px 10px; float:right">Save</button>
+        <h4 id="title-{{@index}}"><strong>{{this.title}}</strong></h4>
+        <a href="{{this.link}}" id="link-{{@index}}">{{this.link}}</a>
+        {{#if this.excerpt}}
+        <h5 id="excerpt-{{@index}}">{{this.excerpt}}</h5>
+        {{/if}}
+        <hr>
+        {{/each}}
+
+      </div>
+    </div>
+  </div>
+</div>
