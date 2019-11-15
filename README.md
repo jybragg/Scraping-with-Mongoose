@@ -2,8 +2,6 @@
 
 A web app that lets users view and leave comments on the latest web development articles scraped from Reddit.com
 
-<hr>
-
 ## Development and Technical Details
 ### This app uses:
 
