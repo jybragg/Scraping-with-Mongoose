@@ -44,7 +44,6 @@ mongoose.connect(MONGODB_URI);
 var results = [];
 
 // Routes
-
 app.get("/", function(req, res) {
     res.render("index");
 });
